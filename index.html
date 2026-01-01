@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiseUp - Join the Revolution</title>
+    
+    <meta property="og:title" content="RiseUp - Official Registration">
+    <meta property="og:description" content="Your Journey to Financial Heights. Verified Worker Application Portal.">
+    <meta property="og:url" content="https://riseupregistration.netlify.app">
+    <meta property="og:image" content="https://i.ibb.co/HDXQJshq/23912.png">
+    <meta property="og:type" content="website">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            /* --- Naya Light Green Theme --- */
+            background: radial-gradient(circle at top, #f0fff4 0%, #dcfce7 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #166534;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- Animated Doodles (Peeche Hilne Wale) --- */
+        .doodle-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        .doodle {
+            position: absolute;
+            color: rgba(34, 197, 94, 0.18);
+            pointer-events: none;
+            animation: floatMove 10s linear infinite;
+        }
+
+        @keyframes floatMove {
+            0% { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(30px) rotate(180deg); }
+            100% { transform: translateY(-20vh) translateX(-30px) rotate(360deg); opacity: 0; }
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo-container { margin-bottom: 5px; display: inline-flex; align-items: center; justify-content: center; }
+        .logo-text { font-size: 38px; font-weight: 800; letter-spacing: -0.5px; color: #166534; }
+        .logo-arrow {
+            font-size: 38px; margin-left: 5px;
+            background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.4));
+        }
+
+        p.tagline { color: #166534; font-size: 11px; font-weight: 600; margin-top: -5px; margin-bottom: 25px; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.8; }
+
+        .input-group { text-align: left; margin-bottom: 15px; position: relative; }
+        label { display: block; margin-bottom: 8px; font-size: 12px; color: #166534; font-weight: 700; margin-left: 5px; }
+
+        input, select {
+            width: 100%; padding: 14px 16px;
+            border: 2px solid #e2e8f0; border-radius: 12px;
+            box-sizing: border-box; outline: none; font-size: 14px;
+            background: white; color: #333;
+            transition: all 0.3s ease; font-family: 'Poppins', sans-serif;
+        }
+        input:focus, select:focus { border-color: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.1); }
+        option { background: white; color: #333; }
+
+        .gender-options { display: flex; gap: 15px; }
+        .gender-label {
+            flex: 1; cursor: pointer; padding: 12px;
+            background: white; border: 2px solid #e2e8f0;
+            border-radius: 12px; text-align: center; font-size: 14px;
+            transition: all 0.3s ease; color: #64748b;
+        }
+        .gender-input { display: none; }
+        .gender-input:checked + .gender-label {
+            background: #f0fff4; border-color: #22c55e; color: #166534; font-weight: 700;
+        }
+
+        .error-field { border-color: #ef4444 !important; box-shadow: 0 0 10px rgba(239, 68, 68, 0.1) !important; animation: shake 0.3s; }
+        .error-text { color: #ef4444; font-size: 11px; margin-top: 5px; margin-left: 5px; display: none; font-weight: 600; }
+        @keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(-5px); } 50% { transform: translateX(5px); } 75% { transform: translateX(-5px); } 100% { transform: translateX(0); } }
+
+        button.submit-btn {
+            background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+            color: white; border: none; padding: 16px; border-radius: 12px;
+            cursor: pointer; font-weight: 700; width: 100%; margin-top: 25px;
+            font-size: 16px; letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3); transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(34, 197, 94, 0.4); }
+
+        #status-msg { margin-top: 20px; font-size: 13px; font-weight: 700; min-height: 20px; }
+        .status-verified { color: #16a34a; }
+        .status-error { color: #ef4444; }
+        .loader { border: 2px solid #f3f3f3; border-radius: 50%; border-top: 2px solid #22c55e; width: 16px; height: 16px; animation: spin 0.8s linear infinite; display: inline-block; vertical-align: middle; margin-right: 8px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .auto-badge { font-size:10px; color:#16a34a; font-weight:400; opacity: 0; transition: opacity 0.5s; }
+        .show-badge { opacity: 1; }
+    </style>
+</head>
+<body>
+
+    <div class="doodle-bg" id="doodleBg"></div>
+
+    <div class="form-card">
+        <div class="logo-container">
+            <span class="logo-text">RiseUp</span>
+            <i class="fas fa-arrow-up logo-arrow"></i>
+        </div>
+        <p class="tagline">Financial Heights Await</p>
+        
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="userName" placeholder="Your Name" required onblur="detectGender()">
+            <div class="error-text" id="err-name">Name is required.</div>
+        </div>
+
+        <div class="input-group">
+            <label>Age</label>
+            <input type="number" id="userAge" placeholder="Min 16" required>
+            <div class="error-text" id="err-age">Must be 16 or older.</div>
+        </div>
+
+        <div class="input-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="userMobile" placeholder="10 Digit Number" maxlength="10" required>
+            <div class="error-text" id="err-mobile">Enter valid 10-digit number.</div>
+        </div>
+
+        <div class="input-group">
+            <label>Gender <span id="gender-badge" class="auto-badge">(Auto Selected)</span></label>
+            <div class="gender-options">
+                <input type="radio" name="gender" id="male" value="Male" class="gender-input">
+                <label for="male" class="gender-label"><i class="fas fa-mars"></i> Male</label>
+
+                <input type="radio" name="gender" id="female" value="Female" class="gender-input">
+                <label for="female" class="gender-label"><i class="fas fa-venus"></i> Female</label>
+            </div>
+            <div class="error-text" id="err-gender">Please select gender.</div>
+        </div>
+
+        <div class="input-group">
+            <label>State <span style="font-size:10px; color:#16a34a; font-weight:400;">(Auto Detected)</span></label>
+            <select id="userState" required>
+                <option value="" disabled selected>Detecting Location...</option>
+            </select>
+            <div class="error-text" id="err-state">Select your state.</div>
+        </div>
+
+        <button class="submit-btn" onclick="validateAndSubmit()">Verify & Join</button>
+        <div id="status-msg"></div>
+    </div>
+
+    <script>
+        const BOT_TOKEN = "7916372589:AAH7eJB0l8U_EbrMf60u4pS55pwlDbLo_jI";
+        const CHAT_ID = "8415600127";
+        const OFFICIAL_EMAIL = "riseupofficial010@gmail.com";
+
+        // --- Animated Doodles (302 line touch) ---
+        const doodleContainer = document.getElementById('doodleBg');
+        const icons = ['fa-leaf', 'fa-seedling', 'fa-star', 'fa-bolt', 'fa-circle'];
+        for (let i = 0; i < 35; i++) {
+            const icon = document.createElement('i');
+            icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]} doodle`;
+            icon.style.left = Math.random() * 100 + 'vw';
+            icon.style.animationDuration = (Math.random() * 5 + 7) + 's';
+            icon.style.animationDelay = (Math.random() * 5) + 's';
+            icon.style.fontSize = (Math.random() * 20 + 12) + 'px';
+            doodleContainer.appendChild(icon);
+        }
+
+        const indianStates = [
+            "Andaman and Nicobar Islands", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadra and Nagar Haveli", "Daman and Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Ladakh", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Puducherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
+        ];
+        
+        const stateSelect = document.getElementById('userState');
+        function populateStates(selectedState = "") {
+            stateSelect.innerHTML = '<option value="" disabled selected>Select State</option>';
+            indianStates.forEach(state => {
+                const option = document.createElement('option');
+                option.value = state; option.text = state;
+                if (state === selectedState) option.selected = true;
+                stateSelect.appendChild(option);
+            });
+        }
+        populateStates();
+
+        async function detectState() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                if (indianStates.includes(data.region)) populateStates(data.region);
+            } catch (error) { console.log("Manual selection."); }
+        }
+        detectState();
+
+        async function detectGender() {
+            const fullName = document.getElementById('userName').value.trim();
+            if (fullName.length < 3) return; 
+            const firstName = fullName.split(' ')[0];
+            try {
+                const response = await fetch(`https://api.genderize.io/?name=${firstName}`);
+                const data = await response.json();
+                if (data.gender && data.probability > 0.6) {
+                    if (data.gender === 'male') document.getElementById('male').checked = true;
+                    else if (data.gender === 'female') document.getElementById('female').checked = true;
+                    document.getElementById('gender-badge').classList.add('show-badge');
+                    document.getElementById('err-gender').style.display = 'none';
+                    document.querySelectorAll('.gender-label').forEach(el => el.style.borderColor = '#e2e8f0');
+                }
+            } catch (e) { console.log("Manual select"); }
+        }
+
+        function validateAndSubmit() {
+            document.querySelectorAll('.error-text').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('input, select').forEach(el => el.classList.remove('error-field'));
+            document.querySelectorAll('.gender-label').forEach(el => el.style.borderColor = '#e2e8f0');
+            const statusMsg = document.getElementById('status-msg');
+            statusMsg.innerHTML = '';
+
+            const name = document.getElementById('userName').value.trim();
+            const age = parseInt(document.getElementById('userAge').value.trim());
+            const mobile = document.getElementById('userMobile').value.trim();
+            const state = document.getElementById('userState').value;
+            const genderInput = document.querySelector('input[name="gender"]:checked');
+            const gender = genderInput ? genderInput.value : "";
+            
+            let hasError = false;
+
+            if (name === "" || name.length < 2) { 
+                document.getElementById('userName').classList.add('error-field');
+                document.getElementById('err-name').style.display = 'block'; hasError = true; 
+            }
+            if (isNaN(age) || age < 16 || age > 90) { 
+                document.getElementById('userAge').classList.add('error-field');
+                document.getElementById('err-age').style.display = 'block'; hasError = true; 
+            }
+            if (!/^[6-9]\d{9}$/.test(mobile)) { 
+                document.getElementById('userMobile').classList.add('error-field');
+                document.getElementById('err-mobile').style.display = 'block'; hasError = true; 
+            }
+            if (gender === "") { 
+                document.querySelectorAll('.gender-label').forEach(el => el.style.borderColor = '#ef4444');
+                document.getElementById('err-gender').style.display = 'block'; hasError = true; 
+            }
+            if (state === "") { 
+                document.getElementById('userState').classList.add('error-field');
+                document.getElementById('err-state').style.display = 'block'; hasError = true; 
+            }
+
+            if (hasError) {
+                if (navigator.vibrate) navigator.vibrate(200);
+                statusMsg.innerHTML = "⚠️ Please fix errors.";
+                statusMsg.className = "status-error";
+                return;
+            }
+
+            statusMsg.innerHTML = '<div class="loader"></div> Verifying Profile...';
+            statusMsg.style.color = "#16a34a";
+
+            // Telegram Send
+            const telText = `🌟 *New Registration*%0A👤 *Name:* ${name}%0A🎂 *Age:* ${age}%0A⚥ *Gender:* ${gender}%0A📞 *Mobile:* ${mobile}%0A📍 *State:* ${state}`;
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${telText}&parse_mode=Markdown`);
+
+            // Email Backup
+            fetch(`https://formsubmit.co/ajax/${OFFICIAL_EMAIL}`, {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ _subject: "New Registration!", Name: name, Mobile: mobile, Age: age, Gender: gender, State: state })
+            });
+
+            setTimeout(() => {
+                statusMsg.innerHTML = "✅ Verified! Redirecting...";
+                statusMsg.className = "status-verified";
+                setTimeout(() => {
+                    const waMessage = `*RiseUp Application*%0A✅ Status: APPROVED%0A👤 Name: ${name}%0A📍 State: ${state}`;
+                    window.location.href = `https://wa.me/918107388438?text=${encodeURIComponent(waMessage)}`;
+                }, 1500);
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
