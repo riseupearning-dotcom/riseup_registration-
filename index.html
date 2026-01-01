@@ -302,7 +302,7 @@
                 statusMsg.innerHTML = "✅ Verified! Redirecting...";
                 statusMsg.className = "status-verified";
                 setTimeout(() => {
-                    const waMessage = `*RiseUp Application*%0A✅ Status: APPROVED%0A👤 Name: ${name}%0A📍 State: ${state}`;
+                    const waMessage = `*RiseUp Application*✅ *Status*: *APPROVED* 👤 Name: ${name} 📍 State: ${state}`;
                     window.location.href = `https://wa.me/918107388438?text=${encodeURIComponent(waMessage)}`;
                 }, 1500);
             }, 1500);
