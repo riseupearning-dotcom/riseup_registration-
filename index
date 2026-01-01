@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiseUp - Join the Revolution</title>
+    
+    <meta property="og:title" content="RiseUp - Official Registration">
+    <meta property="og:description" content="Your Journey to Financial Heights. Verified Worker Application Portal.">
+    <meta property="og:image" content="https://i.ibb.co/HDXQJshq/23912.png">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background: radial-gradient(circle at top, #f0fff4 0%, #dcfce7 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Doodles bahar na jayein */
+            position: relative;
+        }
+
+        /* --- Animated Doodle Background --- */
+        .doodle-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        .doodle {
+            position: absolute;
+            color: rgba(34, 197, 94, 0.18);
+            pointer-events: none;
+            animation: floatMove 12s linear infinite; /* Smooth floating animation */
+        }
+
+        @keyframes floatMove {
+            0% { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(20px) rotate(180deg); }
+            100% { transform: translateY(-20vh) translateX(-20px) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- Form Card --- */
+        .form-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .logo-container { margin-bottom: 5px; display: inline-flex; align-items: center; justify-content: center; }
+        .logo-text { font-size: 38px; font-weight: 800; color: #166534; }
+        .logo-arrow {
+            font-size: 38px; margin-left: 5px;
+            background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        p.tagline { color: #166534; font-size: 11px; font-weight: 600; margin-bottom: 25px; text-transform: uppercase; opacity: 0.7; }
+
+        .input-group { text-align: left; margin-bottom: 15px; }
+        label { display: block; margin-bottom: 8px; font-size: 12px; color: #166534; font-weight: 700; margin-left: 5px; }
+
+        input, select {
+            width: 100%; padding: 14px 16px;
+            border: 2px solid #e2e8f0; border-radius: 12px;
+            background: white; color: #333; outline: none; transition: 0.3s;
+        }
+        input:focus, select:focus { border-color: #22c55e; box-shadow: 0 0 10px rgba(34, 197, 94, 0.1); }
+
+        .gender-options { display: flex; gap: 15px; }
+        .gender-label {
+            flex: 1; cursor: pointer; padding: 12px;
+            background: white; border: 2px solid #e2e8f0;
+            border-radius: 12px; text-align: center; color: #64748b; transition: 0.3s;
+        }
+        .gender-input { display: none; }
+        .gender-input:checked + .gender-label {
+            background: #f0fff4; border-color: #22c55e; color: #166534; font-weight: 700;
+        }
+
+        button.submit-btn {
+            background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+            color: white; border: none; padding: 16px; border-radius: 12px;
+            cursor: pointer; font-weight: 700; width: 100%; margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+        }
+
+        #status-msg { margin-top: 15px; font-size: 13px; font-weight: 700; color: #166534; }
+        .loader { border: 2px solid #f3f3f3; border-radius: 50%; border-top: 2px solid #22c55e; width: 14px; height: 14px; animation: spin 0.8s linear infinite; display: inline-block; margin-right: 5px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="doodle-bg" id="doodleBg"></div>
+
+    <div class="form-card">
+        <div class="logo-container">
+            <span class="logo-text">RiseUp</span>
+            <i class="fas fa-arrow-up logo-arrow"></i>
+        </div>
+        <p class="tagline">Financial Heights Await</p>
+        
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="userName" placeholder="Your Name">
+        </div>
+
+        <div class="input-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="userMobile" placeholder="10 Digit Number" maxlength="10">
+        </div>
+
+        <div class="input-group">
+            <label>Gender</label>
+            <div class="gender-options">
+                <input type="radio" name="gender" id="male" value="Male" class="gender-input">
+                <label for="male" class="gender-label">Male</label>
+                <input type="radio" name="gender" id="female" value="Female" class="gender-input">
+                <label for="female" class="gender-label">Female</label>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>State</label>
+            <select id="userState">
+                <option value="" disabled selected>Select State</option>
+            </select>
+        </div>
+
+        <button class="submit-btn" onclick="sendData()">Verify & Join</button>
+        <div id="status-msg"></div>
+    </div>
+
+    <script>
+        // 🤖 NAYE BOT DETAILS 🤖
+        const BOT_TOKEN = "7916372589:AAH7eJB0l8U_EbrMf60u4pS55pwlDbLo_jI";
+        const CHAT_ID = "8415600127";
+
+        // Dynamic Animated Doodles
+        const doodleContainer = document.getElementById('doodleBg');
+        const icons = ['fa-leaf', 'fa-seedling', 'fa-star', 'fa-bolt', 'fa-circle'];
+        for (let i = 0; i < 35; i++) {
+            const icon = document.createElement('i');
+            icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]} doodle`;
+            icon.style.left = Math.random() * 100 + 'vw';
+            icon.style.animationDuration = (Math.random() * 6 + 8) + 's';
+            icon.style.animationDelay = (Math.random() * 5) + 's';
+            icon.style.fontSize = (Math.random() * 10 + 15) + 'px';
+            doodleContainer.appendChild(icon);
+        }
+
+        // States
+        const indianStates = ["Andhra Pradesh", "Assam", "Bihar", "Delhi", "Gujarat", "Haryana", "Karnataka", "Maharashtra", "Punjab", "Rajasthan", "Uttar Pradesh", "West Bengal"];
+        const stateSelect = document.getElementById('userState');
+        indianStates.forEach(s => { stateSelect.add(new Option(s, s)); });
+
+        function sendData() {
+            const name = document.getElementById('userName').value;
+            const mobile = document.getElementById('userMobile').value;
+            const state = document.getElementById('userState').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const status = document.getElementById('status-msg');
+
+            if(!name || !mobile || !state || !gender) {
+                status.innerText = "⚠️ Adhoori details mat bharo!";
+                return;
+            }
+
+            status.innerHTML = '<div class="loader"></div> Sending to Telegram...';
+
+            const text = `🚀 *New Lead*%0A👤 *Name:* ${name}%0A📞 *Mobile:* ${mobile}%0A⚥ *Gender:* ${gender}%0A📍 *State:* ${state}`;
+            
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}&parse_mode=Markdown`)
+            .then(() => {
+                status.innerHTML = "✅ Done! WhatsApp khul raha hai...";
+                setTimeout(() => {
+                    window.location.href = `https://wa.me/918107388438?text=I+joined+RiseUp`;
+                }, 1500);
+            })
+            .catch(() => { status.innerText = "❌ Error!"; });
+        }
+    </script>
+</body>
+</html>
